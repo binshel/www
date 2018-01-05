@@ -10,7 +10,6 @@ module.exports = {
         path: root_dir + "/build",//打包后的文件存放的地方
         filename: "bundle.js"//打包后输出文件的文件名
     },
-    devtool: 'none',
     module: {
         rules: [
             {
@@ -18,9 +17,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: [
-                            "env", "react"
-                        ],
+                        presets: [ "env", "react" ],
                         cacheDirectory: true,
                         babelrc: false,
                     },
@@ -30,7 +27,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader', 
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
@@ -43,6 +40,8 @@ module.exports = {
             },
         ],
     },
+
+    devtool: 'none',
     devServer: {
         contentBase: "./build/",
         host: '0.0.0.0',
